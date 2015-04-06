@@ -1,7 +1,8 @@
-MIPA - Middleware Infrastructure for Predicate detection in Asynchronous environments
+### Updates
+ * August 01, 2011, MIPA documentation updated. Part of the system design is provided in chapters in Part 2 of the documentation.
+ * The _MIPA Documentation_ is under construction. The latest version is available at [here](http://cs.nju.edu.cn/yuhuang/huangyufiles/projects/mipa-development-documentation.pdf).
 
-INTRODUCTION
-=======
+### MIPA (Middleware Infrastructure for Predicate detection in Asynchronous environments)
 Pervasive applications are undergoing changes as more and more mobile devices are augmented with sensing and controlling abilities, besides the basic abilities of computation and communication. We call such devices C^3^S (Computation, Communication, Control, and Sensing) devices. Examples of C^3^S devices include mobile robots patrolling in a chemical plant for safety management and smart phones equipped with a variety of sensors.
 
 C^3^S devices can provide rich context information for the applications, and pervasive applications are typically designed to be context-aware, i.e., intelligently adapting their behavior to the environment. However, enabling context-awareness through C^3^S devices is faced with severe challenges, as detailed below.
@@ -21,28 +22,25 @@ Under the guidance of the PD-CA framework, we develop the Middleware Infrastruct
 
 MIPA can simplify the development of context-aware applications in asynchronous pervasive computing environments. Based on the PD-CA framework, the context-aware adaptation logic of the application is constructed in a condition-action manner. The contextual property serves as the condition of context-aware behavior.
 
-Please refer to our research papers below and the [http://cs.nju.edu.cn/yuhuang/huangyufiles/projects/mipa-development-documentation.pdf documentation] for more detailed discussions. If you have any comments or suggestions, please feel free to contact Yu Huang (http://cs.nju.edu.cn/yuhuang/).
+Please refer to our research papers below and the [documentation](http://cs.nju.edu.cn/yuhuang/huangyufiles/projects/mipa-development-documentation.pdf) for more detailed discussions. If you have any comments or suggestions, please feel free to contact Yu Huang (http://cs.nju.edu.cn/yuhuang/).
 
-*Key citations:*
-
+### Key citations
 6. Yiling Yang, Yu Huang, Xiaoxing Ma, Jian Lu, Enabling Context-awareness by Predicate Detection in Asynchronous Pervasive Computing Environments, available on arxiv, [http://arxiv.org/abs/1310.3623 http://arxiv.org/abs/1310.3623].
 
-5. Yiling Yang, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, [http://cs.nju.edu.cn/yuhuang/huangyufiles/papers/2013-LatWin.pdf Design of a Sliding Window over Distributed and Asynchronous Event Streams], IEEE Transactions on Parallel and Distributed Systems, accepted in Sep. 2013.
+5. Yiling Yang, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, Design of a Sliding Window over Distributed and Asynchronous Event Streams, IEEE Transactions on Parallel and Distributed Systems, 25(10):2551-2560, Oct. 2014, [http://cs.nju.edu.cn/yuhuang/huangyufiles/papers/2013-LatWin.pdf].
 
-4. Yiling Yang, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2012/Sequence-TPDS12.pdf Formal Specification and Runtime Detection of Dynamic Properties in Asynchronous Pervasive Computing Environments], IEEE Transactions on Parallel and Distributed Systems, 24(8):1546-1555, Aug. 2013.
+4. Yiling Yang, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, Formal Specification and Runtime Detection of Dynamic Properties in Asynchronous Pervasive Computing Environments, IEEE Transactions on Parallel and Distributed Systems, 24(8):1546-1555, Aug. 2013, [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2012/Sequence-TPDS12.pdf].
 
-3. Yu Huang, Yiling Yang, Jiannong Cao, Xiaoxing Ma, Xianping Tao, Jian Lu, [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2011/CADA-TPDS11.pdf Runtime Detection of the Concurrency Property in Asynchronous Pervasive Computing Environments], IEEE Transactions on Parallel and Distributed Systems, 23(4): 744-750, Apr. 2012.
+3. Yu Huang, Yiling Yang, Jiannong Cao, Xiaoxing Ma, Xianping Tao, Jian Lu, Runtime Detection of the Concurrency Property in Asynchronous Pervasive Computing Environments, IEEE Transactions on Parallel and Distributed Systems, 23(4): 744-750, Apr. 2012, [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2011/CADA-TPDS11.pdf].
 
-2. Hengfeng Wei, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2011/PerCom12.pdf Formal Specification and Runtime Detection of Temporal Properties for Asynchronous Context], In proc. of the International Conference on Pervasive Computing and Communications (PerCom), Mar. 2012. (full paper acceptance ratio: 16 out of 150, 11%)
+2. Hengfeng Wei, Yu Huang, Jiannong Cao, Xiaoxing Ma, Jian Lu, Formal Specification and Runtime Detection of Temporal Properties for Asynchronous Context, In proc. of the International Conference on Pervasive Computing and Communications (PerCom), Mar. 2012. (full paper acceptance ratio: 16 out of 150, 11%) [http://cs.nju.edu.cn/yuhuang/huangyufiles/Paper2011/PerCom12.pdf]
 
-1. Yu Huang, Xiaoxing Ma, Jiannong Cao, Xianping Tao and Jian Lu, [http://cs.nju.edu.cn/yuhuang/huangyufiles/paper2008/percom09.pdf Concurrent Event Detection for Asynchronous Consistency Checking of Pervasive Context], in proc. of the 7th Annual IEEE Intl. Conf. on Pervasive Computing and Communications (PerCom), 2009.
+1. Yu Huang, Xiaoxing Ma, Jiannong Cao, Xianping Tao and Jian Lu, Concurrent Event Detection for Asynchronous Consistency Checking of Pervasive Context, in proc. of the 7th Annual IEEE Intl. Conf. on Pervasive Computing and Communications (PerCom), 2009, [http://cs.nju.edu.cn/yuhuang/huangyufiles/paper2008/percom09.pdf].
 
+### INSTALL
+  See more in ./INSTALL file.
 
-INSTALL
-=======
-  see more in ./INSTALL file.
-
-
+### Any Questions?
 For more detail, please visit https://github.com/ylyang/mipa
 
 Yiling Yang <csylyang@gmail.com>
