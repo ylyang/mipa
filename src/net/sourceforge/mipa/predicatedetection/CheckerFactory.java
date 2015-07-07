@@ -41,6 +41,7 @@ import net.sourceforge.mipa.predicatedetection.lattice.wcp.WCPLatticeChecker;
 import net.sourceforge.mipa.predicatedetection.normal.oga.OGASubChecker;
 import net.sourceforge.mipa.predicatedetection.normal.oga.OGATopChecker;
 import net.sourceforge.mipa.predicatedetection.normal.scp.SCPChecker;
+import net.sourceforge.mipa.predicatedetection.normal.tscp.TSCPChecker;
 import net.sourceforge.mipa.predicatedetection.normal.wcp.WCPChecker;
 
 /**
@@ -359,6 +360,36 @@ public class CheckerFactory {
 			logger.fatal(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+
+	public static void createTSCPChecker(ResultCallback callback,
+			String predicateID, String checkerName, String[] normalProcesses, Structure specification) {
+		// TODO Auto-generated method stub
+		try {
+            //ResultCallback application = (ResultCallback) server.lookup(callback);
+
+            CheckMode checkMode = MIPAResource.getCheckMode();
+            if (checkMode == CheckMode.NORMAL) {
+                // NORMAL mode code puts here!
+                TSCPChecker checker = new TSCPChecker(callback, predicateID, 
+                		checkerName, normalProcesses, specification);
+                Communication checkerStub = (Communication) UnicastRemoteObject
+                        .exportObject(checker, 0);
+                server.bind(checkerName, checkerStub);
+                if (DEBUG) {
+                    System.out.println("binding checker " + checkerName);
+                    logger.info("binding checker " + checkerName);
+                }
+            } else {
+                System.out.println("Check Mode " + checkMode
+                        + "has not been defined.");
+                logger.error("Check Mode " + checkMode
+                        + "has not been defined.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 
     /*

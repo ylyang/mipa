@@ -47,6 +47,7 @@ import net.sourceforge.mipa.predicatedetection.lattice.wcp.WCPLatticeNormalProce
 import net.sourceforge.mipa.predicatedetection.normal.cada.CADANormalProcess;
 import net.sourceforge.mipa.predicatedetection.normal.oga.OGANormalProcess;
 import net.sourceforge.mipa.predicatedetection.normal.scp.SCPNormalProcess;
+import net.sourceforge.mipa.predicatedetection.normal.tscp.TSCPNormalProcess;
 import net.sourceforge.mipa.predicatedetection.normal.wcp.WCPNormalProcess;
 
 
@@ -181,6 +182,14 @@ public class ECAManagerImp implements ECAManager {
                     npStub = (NormalProcess) UnicastRemoteObject.exportObject(
                             scpNP, 0);
                     action = scpNP;
+
+                    break;
+                case TSCP:
+                    TSCPNormalProcess tscpNP = new TSCPNormalProcess(name,
+                            checkers, normalProcesses);
+                    npStub = (NormalProcess) UnicastRemoteObject.exportObject(
+                            tscpNP, 0);
+                    action = tscpNP;
 
                     break;
                 case OGA:

@@ -6,8 +6,8 @@
 		<port>1099</port>
 	</naming>
 	<!-- normal or lattice -->
-	<checkMode>lattice</checkMode>
+	<checkMode>normal</checkMode>
 	<!-- real or simulated -->
 	<mode>real</mode>
-	<epsilon>10</epsilon>
+	<epsilon>600</epsilon>
 </config>

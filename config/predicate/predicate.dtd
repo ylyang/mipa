@@ -1,5 +1,5 @@
 <!ELEMENT predicate (CGSs, specification)>
-<!ATTLIST predicate type (SCP|WCP|OGA|LP|CADA|SEQUENCE|SURSEQUENCE|CTL|WINDOWSEQUENCE|TCTL) #REQUIRED>
+<!ATTLIST predicate type (SCP|WCP|OGA|LP|CADA|SEQUENCE|SURSEQUENCE|CTL|WINDOWSEQUENCE|TCTL|TSCP) #REQUIRED>
 
 <!-- CGS definition -->
 <!ELEMENT CGSs (CGS)+>
@@ -37,6 +37,8 @@
 <!ELEMENT specification ((prefix, GSE)|(CTLFormula)|(TCTLFormula))>
 <!ELEMENT prefix EMPTY>
 <!ATTLIST prefix value (def|pos) #REQUIRED>
+<!ATTLIST prefix operator (less-than|less-or-equal|greater-than|greater-or-equal) #IMPLIED>
+<!ATTLIST prefix bound CDATA #IMPLIED>
 
 <!ELEMENT GSE (element+, global)>
 <!ATTLIST GSE value (conjunction|disjunction) #REQUIRED>

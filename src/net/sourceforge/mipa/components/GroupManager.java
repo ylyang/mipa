@@ -348,6 +348,11 @@ public class GroupManager {
                     localPredicateToNormalProcess, callback, predicateID,
                     maxLevel);
             break;
+        case TSCP:
+        	flag = allocateAsTSCP(groups, groupToChecker,
+                    localPredicateToNormalProcess, callback, predicateID,
+                    maxLevel);
+            break;
         case WCP:
             allocateAsWCP(groups, groupToChecker,
                     localPredicateToNormalProcess, callback, predicateID,
@@ -406,7 +411,75 @@ public class GroupManager {
         return info;
     }
 
-    private void allocateAsTCTL(Map<String, AbstractGroup> groups,
+    private boolean allocateAsTSCP(Map<String, AbstractGroup> groups,
+            Map<String, String> groupToChecker,
+            Map<LocalPredicate, String> localPredicateToNormalProcess,
+            ResultCallback callback, String predicateID, int maxLevel) {
+
+        IDManager idManager = MIPAResource.getIDManager();
+        Coordinator coordinator = MIPAResource.getCoordinator();
+
+        // start checker for level > 0
+        for (int i = maxLevel; i > 0; i--) {
+
+        }
+
+        // check the level == 0
+        for (String s : groups.keySet()) {
+            AbstractGroup g = groups.get(s);
+            if (g.getLevel() == 0) {
+                String gid = g.getGroupId();
+
+                // current Implementation is that father of SCP checker is null;
+
+                ArrayList<Object> children = g.getChildren();
+                ArrayList<String> owners = new ArrayList<String>();
+                ArrayList<String> members = new ArrayList<String>();
+                owners.add(groupToChecker.get(gid));
+                for (int i = 0; i < children.size(); i++) {
+                    members.add(localPredicateToNormalProcess.get(children
+                            .get(i)));
+                }
+                // create group
+                String groupId = null;
+                try {
+                    groupId = idManager.getID(Catalog.Group);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Group ng = new Group(groupId, owners, members,
+                        PredicateType.TSCP);
+                ng.setCoordinatorID(groupId);
+
+                try {
+                    coordinator.newCoordinator(ng);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                String checkerName = ng.getOwners().get(0);
+                String[] normalProcesses = new String[ng.getMembers().size()];
+                ng.getMembers().toArray(normalProcesses);
+                CheckerFactory.createTSCPChecker(callback, predicateID,
+                        checkerName, normalProcesses, specification);
+
+                // create Normal Processes.
+                for (int i = 0; i < children.size(); i++) {
+                    boolean flag = broker.registerLocalPredicate((LocalPredicate) children
+                            .get(i), localPredicateToNormalProcess.get(children
+                            .get(i)), ng);
+                    if(flag == false) {
+                    	System.out.println("Cannot find the corresponding sensors!");
+                    	return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+	private void allocateAsTCTL(Map<String, AbstractGroup> groups,
 			Map<String, String> groupToChecker,
 			Map<LocalPredicate, String> localPredicateToNormalProcess,
 			ResultCallback callback, String predicateID, int maxLevel) {

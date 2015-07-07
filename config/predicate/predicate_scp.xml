@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE predicate SYSTEM "predicate.dtd">
-<predicate type="SCP">
+<predicate type="TSCP">
 	<CGSs>
 		<CGS name = "a" value = "conjunction">
 			<LP>

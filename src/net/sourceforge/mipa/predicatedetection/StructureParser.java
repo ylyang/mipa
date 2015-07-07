@@ -159,16 +159,30 @@ public class StructureParser {
                 System.out.println("----prefix: "+prefix);
                 logger.info("----prefix: "+prefix);
             }
+            
+            //for timed predicates
+            String operator = "";
+            String bound = "";
+            operator = node.getAttributes().getNamedItem("operator").getNodeValue();
+            bound = node.getAttributes().getNamedItem("bound").getNodeValue();
+            
             node = node.getNextSibling();
             node = node.getNextSibling();
             if(node.getNodeType() == Node.ELEMENT_NODE) {
                 if (node.getNodeName().equals("GSE")) {
+                	String operatorString = node.getAttributes().getNamedItem("value").getNodeValue();
                     Structure GSENode = null;
-                    if(prefix.equals("def")) {
+                    if(prefix.equals("def") && operator == "" && bound == "") {
                         GSENode = new Composite(NodeType.DEF, "GSE");
                     }
-                    else{
+                    else if(prefix.equals("pos") && operator == "" && bound == "") {
                         GSENode = new Composite(NodeType.POS, "GSE");
+                    }
+                    else if(prefix.equals("def") && operator != "" && bound != "") {
+                    	GSENode = new TimedModality(NodeType.TDEF, "GSE",operatorString,operator,bound);
+                    }
+                    else if(prefix.equals("pos") && operator != "" && bound != "") {
+                    	GSENode = new TimedModality(NodeType.TPOS, "GSE",operatorString,operator,bound);
                     }
                     result.add(GSENode);
                     if(DEBUG){
